@@ -1,6 +1,6 @@
 <template lang="pug">
   doc-view(v-bind:doc="doc" id="pickers-view")
-    v-date-time
+    v-date-picker
 </template>
 
 <script>
