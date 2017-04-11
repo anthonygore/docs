@@ -1,28 +1,20 @@
 <template lang="pug">
   doc-view(v-bind:doc="doc" id="pickers-view")
-    v-menu(transition="v-scale-transition" v-bind:close-on-content-click="false" lazy)
-      v-text-field(slot="activator" label="Date" single-line v-model="test")
-      v-date-picker(v-model="test" dark)
-        template(scope="{ save, cancel }")
-          v-card-row(actions)
-            v-btn(flat primary v-on:click.native="cancel()") Cancel
-            v-btn(flat primary v-on:click.native="save()") Ok
-    v-modal(lazy)
-      v-text-field(slot="activator" label="Date" single-line v-model="test")
-      v-date-picker(v-model="test")
-        template(scope="{ save, cancel }")
-          v-card-row(actions)
-            v-btn(flat primary v-on:click.native="cancel()") Cancel
-            v-btn(flat primary v-on:click.native="save()") Ok
+    component-example(header="Date pickers" file="pickers/1" v-bind:data="$data")
+    component-example(file="pickers/2" v-bind:data="$data")
+      span(class="subheading" slot="details") Landscape
+    component-example(file="pickers/3" v-bind:data="$data")
+      span(class="subheading" slot="details") Dark Portrait
+    component-example(file="pickers/4" v-bind:data="$data")
+      span(class="subheading" slot="details") Dark Landscape
 </template>
 
 <script>
   export default {
     data () {
       return {
-        test: '2007-09-01',
-        menu: false,
-        modal: false,
+        e1: null,
+        e2: null,
         doc: {
           title: 'Pickers',
           desc: '',
